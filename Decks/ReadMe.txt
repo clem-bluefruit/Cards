@@ -1,19 +1,19 @@
 ========================================================================
-    STATIC LIBRARY : Gtest Project Overview
+    STATIC LIBRARY : Decks Project Overview
 ========================================================================
 
-AppWizard has created this Gtest library project for you.
+AppWizard has created this Decks library project for you.
 
 No source files were created as part of your project.
 
 
-Gtest.vcxproj
+Decks.vcxproj
     This is the main project file for VC++ projects generated using an Application Wizard.
     It contains information about the version of Visual C++ that generated the file, and
     information about the platforms, configurations, and project features selected with the
     Application Wizard.
 
-Gtest.vcxproj.filters
+Decks.vcxproj.filters
     This is the filters file for VC++ projects generated using an Application Wizard. 
     It contains information about the association between the files in your project 
     and the filters. This association is used in the IDE to show grouping of files with

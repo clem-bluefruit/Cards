@@ -7,6 +7,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cards", "Cards\Cards.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Gtest", "Gtest\Gtest.vcxproj", "{FB9B09D0-4F91-494A-AD5E-0084FDAAC0A6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cards.Tests", "Cards.Tests\Cards.Tests.vcxproj", "{6AE05450-707B-455C-9BE5-D72C6EC1E435}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Decks", "Decks\Decks.vcxproj", "{0E3368AC-1880-401C-86CE-C1F344C95351}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +25,14 @@ Global
 		{FB9B09D0-4F91-494A-AD5E-0084FDAAC0A6}.Debug|Win32.Build.0 = Debug|Win32
 		{FB9B09D0-4F91-494A-AD5E-0084FDAAC0A6}.Release|Win32.ActiveCfg = Release|Win32
 		{FB9B09D0-4F91-494A-AD5E-0084FDAAC0A6}.Release|Win32.Build.0 = Release|Win32
+		{6AE05450-707B-455C-9BE5-D72C6EC1E435}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6AE05450-707B-455C-9BE5-D72C6EC1E435}.Debug|Win32.Build.0 = Debug|Win32
+		{6AE05450-707B-455C-9BE5-D72C6EC1E435}.Release|Win32.ActiveCfg = Release|Win32
+		{6AE05450-707B-455C-9BE5-D72C6EC1E435}.Release|Win32.Build.0 = Release|Win32
+		{0E3368AC-1880-401C-86CE-C1F344C95351}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0E3368AC-1880-401C-86CE-C1F344C95351}.Debug|Win32.Build.0 = Debug|Win32
+		{0E3368AC-1880-401C-86CE-C1F344C95351}.Release|Win32.ActiveCfg = Release|Win32
+		{0E3368AC-1880-401C-86CE-C1F344C95351}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
