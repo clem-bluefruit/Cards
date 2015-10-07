@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cards.Tests", "Cards.Tests\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Decks", "Decks\Decks.vcxproj", "{0E3368AC-1880-401C-86CE-C1F344C95351}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Decks.Tests", "Decks.Tests\Decks.Tests.vcxproj", "{19D0FBBF-F5EE-46FF-BA8A-4A87357752C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -33,6 +35,10 @@ Global
 		{0E3368AC-1880-401C-86CE-C1F344C95351}.Debug|Win32.Build.0 = Debug|Win32
 		{0E3368AC-1880-401C-86CE-C1F344C95351}.Release|Win32.ActiveCfg = Release|Win32
 		{0E3368AC-1880-401C-86CE-C1F344C95351}.Release|Win32.Build.0 = Release|Win32
+		{19D0FBBF-F5EE-46FF-BA8A-4A87357752C8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{19D0FBBF-F5EE-46FF-BA8A-4A87357752C8}.Debug|Win32.Build.0 = Debug|Win32
+		{19D0FBBF-F5EE-46FF-BA8A-4A87357752C8}.Release|Win32.ActiveCfg = Release|Win32
+		{19D0FBBF-F5EE-46FF-BA8A-4A87357752C8}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -73,15 +73,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="BasicDeck.h" />
     <ClInclude Include="Deck.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Cards\Cards.vcxproj">
       <Project>{8f3df870-4fe0-491d-9714-8cb3dd9031e5}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BasicDeck.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
