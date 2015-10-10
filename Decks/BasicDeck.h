@@ -10,11 +10,13 @@ class BasicDeck : public Deck
 {
 public:
 	BasicDeck();
-	void AddCard(Card*);
-	void RemoveCard(Card*);
+	~BasicDeck();
 	Card* GetCard(unsigned int pos);
+	void AddCard(Card* card);
+	void RemoveCard(Card* card);
 	size_t DeckSize();
 	std::string CardName(unsigned int cardPos);
+	unsigned int CardValue(unsigned int cardPos);
 private:
 	std::vector<Card*> m_cards;
 };

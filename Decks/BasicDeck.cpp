@@ -7,6 +7,15 @@ m_cards(0)
 {
 }
 
+BasicDeck::~BasicDeck()
+{
+	for (Card* c : m_cards)
+	{
+		delete c;
+	}
+	m_cards.clear();
+}
+
 void BasicDeck::AddCard(Card* card)
 {
 	m_cards.push_back(card);
@@ -33,4 +42,9 @@ size_t BasicDeck::DeckSize()
 string BasicDeck::CardName(unsigned int cardPos)
 {
 	return GetCard(cardPos)->ViewCardName();
+}
+
+unsigned int BasicDeck::CardValue(unsigned int cardPos)
+{
+	return GetCard(cardPos)->ViewCardValue();
 }

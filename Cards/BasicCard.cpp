@@ -11,12 +11,12 @@ m_cardValue(value)
 {
 }
 
-BasicCard::BasicCard(string name) :
+BasicCard::BasicCard(const string& name) :
 m_cardName(name)
 {
 }
 
-BasicCard::BasicCard(int value, string name) :
+BasicCard::BasicCard(int value, const string& name) :
 m_cardValue(value),
 m_cardName(name)
 {
@@ -37,7 +37,7 @@ void BasicCard::SetCardValue(int value)
 	m_cardValue = value;
 }
 
-void BasicCard::SetCardName(string name)
+void BasicCard::SetCardName(const string& name)
 {
 	m_cardName = name;
 }
