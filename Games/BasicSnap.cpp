@@ -26,11 +26,7 @@ void SnapGame::AddPlayer(const string& name, int numberOfCards)
 
 Deck* SnapGame::Player(string name)
 {
-	for (auto& player : m_players)
-	{
-		if (player.first == name)
-			return player.second;
-	}
+	return m_players.find(name)->second;
 }
 
 size_t SnapGame::HowManyPlayers() const
