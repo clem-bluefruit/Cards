@@ -11,7 +11,8 @@ class BasicDeck : public Deck
 public:
 	BasicDeck();
 	~BasicDeck();
-	Card* GetCard(unsigned int pos);
+	Card* DrawCard(unsigned int pos);
+	Card* GetTopCard();
 	void AddCard(Card* card);
 	void RemoveCard(Card* card);
 	size_t DeckSize();

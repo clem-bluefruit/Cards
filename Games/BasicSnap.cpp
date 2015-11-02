@@ -19,12 +19,19 @@ SnapGame::~SnapGame()
 
 void SnapGame::AddPlayer(const string& name, int numberOfCards)
 {
-	Deck* deck = new BasicDeck;
+	BasicDeck* deck = new BasicDeck;
 	DeckBuilder(deck, numberOfCards);
-	m_players.insert(pair<string, Deck*>(name, deck));
+	m_players.insert(pair<string, BasicDeck*>(name, deck));
 }
 
-Deck* SnapGame::Player(string name)
+void SnapGame::PlayerDrawCard(BasicDeck* playerDeck)
+{
+	Card* card = playerDeck->GetTopCard();
+	m_discardedCards->AddCard(card);
+	playerDeck->RemoveCard(card);
+}
+
+BasicDeck* SnapGame::Player(const string& name)
 {
 	return m_players.find(name)->second;
 }
@@ -34,7 +41,12 @@ size_t SnapGame::HowManyPlayers() const
 	return m_players.size();
 }
 
-void SnapGame::DeckBuilder(Deck* deck, int numberOfCards)
+size_t SnapGame::DiscardDeckSize() const
+{
+	return m_discardedCards->DeckSize();
+}
+
+void SnapGame::DeckBuilder(BasicDeck* deck, int numberOfCards)
 {
 	for (int i = 0; i < numberOfCards; ++i)
 	{

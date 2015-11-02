@@ -76,8 +76,15 @@ TEST_F(BasicDeckTest, Remove_card_from_deck_of_cards)
 {
 	MakeDeckOfInts(deck, 5);
 	ASSERT_EQ(5, deck.DeckSize());
-	Card* cardToRemove = deck.GetCard(4);
+	Card* cardToRemove = deck.DrawCard(4);
 	deck.RemoveCard(cardToRemove);
 	ASSERT_EQ(4, deck.DeckSize());
 	ASSERT_EQ(3, deck.CardValue(3));
+}
+
+TEST_F(BasicDeckTest, Get_last_card_from_deck)
+{
+	MakeDeckOfInts(deck, 5);
+	Card* lastCard = deck.GetTopCard();
+	ASSERT_EQ(4, lastCard->ViewCardValue());
 }

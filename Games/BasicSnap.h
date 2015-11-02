@@ -13,12 +13,15 @@ public:
 	SnapGame();
 	~SnapGame();
 	void AddPlayer(const std::string& name, int numberOfCards = 0);
-	Deck* Player(std::string name);
+	void PlayerDrawCard(BasicDeck* playerDeck);
+	BasicDeck* Player(const std::string& name);
 	size_t HowManyPlayers() const;
+	size_t DiscardDeckSize() const;
 private:
-	std::map<std::string, Deck*> m_players;
+	std::map<std::string, BasicDeck*> m_players;
 	Deck* m_discardedCards;
-	void DeckBuilder(Deck* deck, int numberOfCards);
+	void DeckBuilder(BasicDeck* deck, int numberOfCards);
+
 };
 
 #endif
