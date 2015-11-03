@@ -55,3 +55,16 @@ void SnapGame::DeckBuilder(BasicDeck* deck, int numberOfCards)
 		deck->AddCard(card);
 	}
 }
+
+bool SnapGame::CallSnap() const
+{
+	unsigned int deckSize = m_discardedCards->DeckSize();
+	if (deckSize > 1)
+	{
+		Card* topCard = m_discardedCards->DrawCard(--deckSize);
+		Card* nextCard = m_discardedCards->DrawCard(--deckSize);
+		if (topCard->ViewCardValue() == nextCard->ViewCardValue())
+			return true;
+	}
+	return false;
+}

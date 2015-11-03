@@ -17,6 +17,7 @@ public:
 	BasicDeck* Player(const std::string& name);
 	size_t HowManyPlayers() const;
 	size_t DiscardDeckSize() const;
+	bool CallSnap() const;
 private:
 	std::map<std::string, BasicDeck*> m_players;
 	Deck* m_discardedCards;

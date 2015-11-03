@@ -36,7 +36,7 @@ Card* BasicDeck::DrawCard(unsigned int pos)
 
 Card* BasicDeck::GetTopCard()
 {
-	return m_cards.back();
+	return (m_cards.size() > 0) ? m_cards.back() : m_cards.at(0);
 }
 
 size_t BasicDeck::DeckSize()
