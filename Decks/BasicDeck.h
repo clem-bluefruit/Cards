@@ -11,6 +11,8 @@ class BasicDeck : public Deck
 public:
 	BasicDeck();
 	~BasicDeck();
+	BasicDeck(const BasicDeck&) = default;
+	BasicDeck& operator = (const BasicDeck& rVal);
 	Card* DrawCard(unsigned int pos);
 	Card* GetTopCard();
 	void AddCard(Card* card);

@@ -12,6 +12,8 @@ class SnapGame
 public:
 	SnapGame();
 	~SnapGame();
+	SnapGame(const SnapGame&) = default;
+	SnapGame& operator = (const SnapGame& rVal);
 	void AddPlayer(const std::string& name, int numberOfCards = 0);
 	void PlayerDrawCard(BasicDeck* playerDeck);
 	BasicDeck* Player(const std::string& name);
