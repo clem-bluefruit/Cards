@@ -11,9 +11,7 @@ SnapGame::SnapGame()
 SnapGame::~SnapGame()
 {
 	for (auto players = m_players.begin(); players != m_players.end(); ++players)
-	{
 		delete players->second;
-	}
 	delete m_discardedCards;
 }
 
@@ -48,9 +46,9 @@ size_t SnapGame::DiscardDeckSize() const
 
 void SnapGame::DeckBuilder(BasicDeck* deck, int numberOfCards)
 {
-	for (int i = 0; i < numberOfCards; ++i)
+	for (unsigned int i = 0; i < numberOfCards; ++i)
 	{
-		int cardValue = i + 1;
+		unsigned int cardValue = i + 1;
 		Card* card = new BasicCard(cardValue);
 		deck->AddCard(card);
 	}

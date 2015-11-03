@@ -24,7 +24,6 @@ private:
 	std::map<std::string, BasicDeck*> m_players;
 	Deck* m_discardedCards;
 	void DeckBuilder(BasicDeck* deck, int numberOfCards);
-
 };
 
 #endif
