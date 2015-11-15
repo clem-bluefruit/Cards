@@ -13,7 +13,7 @@ public:
 	~BasicDeck();
 	BasicDeck(const BasicDeck&) = default;
 	BasicDeck& operator = (const BasicDeck& rVal);
-	Card* DrawCard(unsigned int pos);
+	Card* DrawCard(unsigned int pos = 0);
 	Card* GetTopCard();
 	void AddCard(Card* card);
 	void RemoveCard(Card* card);

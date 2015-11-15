@@ -19,11 +19,11 @@ public:
 	BasicDeck* Player(const std::string& name);
 	size_t HowManyPlayers() const;
 	size_t DiscardDeckSize() const;
-	bool CallSnap() const;
+	bool CallSnap(BasicDeck* player = nullptr);
 private:
 	std::map<std::string, BasicDeck*> m_players;
-	Deck* m_discardedCards;
-	void DeckBuilder(BasicDeck* deck, int numberOfCards);
+	BasicDeck* m_discardedCards;
+	void DeckBuilder(BasicDeck* deck, size_t numberOfCards);
 };
 
 #endif

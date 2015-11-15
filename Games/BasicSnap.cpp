@@ -29,6 +29,16 @@ void SnapGame::PlayerDrawCard(BasicDeck* playerDeck)
 	playerDeck->RemoveCard(card);
 }
 
+void SnapGame::DeckBuilder(BasicDeck* deck, size_t numberOfCards)
+{
+	for (unsigned int i = 0; i < numberOfCards; ++i)
+	{
+		unsigned int cardValue = i + 1;
+		Card* card = new BasicCard(cardValue);
+		deck->AddCard(card);
+	}
+}
+
 BasicDeck* SnapGame::Player(const string& name)
 {
 	return m_players.find(name)->second;
@@ -44,25 +54,25 @@ size_t SnapGame::DiscardDeckSize() const
 	return m_discardedCards->DeckSize();
 }
 
-void SnapGame::DeckBuilder(BasicDeck* deck, int numberOfCards)
-{
-	for (unsigned int i = 0; i < numberOfCards; ++i)
-	{
-		unsigned int cardValue = i + 1;
-		Card* card = new BasicCard(cardValue);
-		deck->AddCard(card);
-	}
-}
-
-bool SnapGame::CallSnap() const
+bool SnapGame::CallSnap(BasicDeck* player)
 {
 	unsigned int deckSize = m_discardedCards->DeckSize();
-	if (deckSize > 1)
+	if (deckSize < 2)
+		return false;
+	
+	Card* topCard  = m_discardedCards->DrawCard(--deckSize);
+	Card* nextCard = m_discardedCards->DrawCard(--deckSize);
+	if (topCard->ViewCardValue() != nextCard->ViewCardValue())
+		return false;
+
+	size_t numberOfDiscards = m_discardedCards->DeckSize();
+	while (numberOfDiscards > 0)
 	{
-		Card* topCard = m_discardedCards->DrawCard(--deckSize);
-		Card* nextCard = m_discardedCards->DrawCard(--deckSize);
-		if (topCard->ViewCardValue() == nextCard->ViewCardValue())
-			return true;
+		Card* card = m_discardedCards->DrawCard();
+		if (player != nullptr)
+			player->AddCard(card);
+		m_discardedCards->RemoveCard(card);
+		--numberOfDiscards;
 	}
-	return false;
+	return true;
 }

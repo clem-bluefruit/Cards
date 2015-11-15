@@ -5,7 +5,9 @@
 using namespace ::testing;
 using namespace ::std;
 
-class BasicSnapGame : public ::testing::Test, public SnapGame
+class BasicSnapGame :
+	public ::testing::Test,
+	public SnapGame
 {
 public:
 	SnapGame game;
@@ -68,5 +70,53 @@ TEST_F(BasicSnapGame, Two_player_game_player_two_calls_Snap)
 	BasicDeck* playerTwoDeck = game.Player(playerTwoName);
 	game.PlayerDrawCard(playerOneDeck);
 	game.PlayerDrawCard(playerTwoDeck);
-	ASSERT_EQ(true, game.CallSnap());
+	ASSERT_TRUE(game.CallSnap());
+}
+
+TEST_F(BasicSnapGame, Two_player_game_player_one_calls_Snap_before_Player_two_draws_card_Snap_is_false)
+{
+	const string playerOneName = "One";
+	const string playerTwoName = "Two";
+	const int deckSize = 10;
+	game.AddPlayer(playerOneName, deckSize);
+	game.AddPlayer(playerTwoName, deckSize);
+	BasicDeck* playerOneDeck = game.Player(playerOneName);
+	BasicDeck* playerTwoDeck = game.Player(playerTwoName);
+	game.PlayerDrawCard(playerOneDeck);
+	ASSERT_FALSE(game.CallSnap());
+}
+
+TEST_F(BasicSnapGame, Two_player_game_Player_One_calls_Snap_first_Player_Two_call_is_false)
+{
+	const string playerOneName = "One";
+	const string playerTwoName = "Two";
+	const int deckSize = 10;
+	game.AddPlayer(playerOneName, deckSize);
+	game.AddPlayer(playerTwoName, deckSize);
+	BasicDeck* playerOneDeck = game.Player(playerOneName);
+	BasicDeck* playerTwoDeck = game.Player(playerTwoName);
+	game.PlayerDrawCard(playerOneDeck);
+	game.PlayerDrawCard(playerTwoDeck);
+	game.CallSnap();
+	ASSERT_FALSE(game.CallSnap());
+}
+
+TEST_F(BasicSnapGame, Two_player_game_Player_Two_calls_Snap_Wins_discarded_cards)
+{
+	const string playerOneName = "One";
+	const string playerTwoName = "Two";
+	const int deckSize = 10;
+	game.AddPlayer(playerOneName, deckSize);
+	game.AddPlayer(playerTwoName, deckSize);
+	BasicDeck* playerOneDeck = game.Player(playerOneName);
+	BasicDeck* playerTwoDeck = game.Player(playerTwoName);
+	for (size_t i = 0; i < 3; i++)
+	{
+		game.PlayerDrawCard(playerOneDeck);
+		game.PlayerDrawCard(playerTwoDeck);
+	}
+	game.CallSnap(playerTwoDeck);
+	ASSERT_EQ(7, playerOneDeck->DeckSize());
+	ASSERT_EQ(13, playerTwoDeck->DeckSize());
+	ASSERT_EQ(0, game.DiscardDeckSize());
 }
