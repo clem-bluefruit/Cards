@@ -1,6 +1,7 @@
 #include "BasicCard.h"
 #include "BasicDeck.h"
 #include <gtest\gtest.h>
+#include <sstream>
 
 using namespace ::testing;
 using namespace ::std;
@@ -27,6 +28,17 @@ public:
 			Card* card = new BasicCard(i, cardNames.at(i));
 			deck.AddCard(card);
 		}
+	}
+	string ViewCards()
+	{
+		stringstream handOfCards;
+		size_t deckSize = deck.DeckSize();
+		while (deckSize > 0)
+		{
+			handOfCards << deck.GetTopCard() << ",";
+			--deckSize;
+		}
+		return handOfCards.str();
 	}
 };
 
@@ -76,8 +88,24 @@ TEST_F(BasicDeckTest, Remove_card_from_deck_of_cards)
 {
 	MakeDeckOfInts(deck, 5);
 	ASSERT_EQ(5, deck.DeckSize());
-	Card* cardToRemove = deck.GetCard(4);
+	Card* cardToRemove = deck.DrawCard(4);
 	deck.RemoveCard(cardToRemove);
 	ASSERT_EQ(4, deck.DeckSize());
 	ASSERT_EQ(3, deck.CardValue(3));
+}
+
+TEST_F(BasicDeckTest, Get_last_card_from_deck)
+{
+	MakeDeckOfInts(deck, 5);
+	Card* lastCard = deck.GetTopCard();
+	ASSERT_EQ(4, lastCard->ViewCardValue());
+}
+
+TEST_F(BasicDeckTest, Shuffle_deck_of_cards)
+{
+	MakeDeckOfInts(deck, 5);
+	string unshuffledCards = ViewCards();
+	deck.ShuffleDeck();
+	string shuffledCards = ViewCards();
+	ASSERT_NE(unshuffledCards, shuffledCards);
 }

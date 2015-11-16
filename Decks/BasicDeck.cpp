@@ -29,9 +29,19 @@ void BasicDeck::RemoveCard(Card* card)
 	m_cards.erase(m_cards.begin() + index);
 }
 
-Card* BasicDeck::GetCard(unsigned int pos)
+void BasicDeck::ShuffleDeck()
+{
+	random_shuffle(m_cards.begin(), m_cards.end());
+}
+
+Card* BasicDeck::DrawCard(unsigned int pos)
 {
 	return m_cards.at(pos);
+}
+
+Card* BasicDeck::GetTopCard()
+{
+	return m_cards.back();
 }
 
 size_t BasicDeck::DeckSize()
@@ -41,10 +51,10 @@ size_t BasicDeck::DeckSize()
 
 string BasicDeck::CardName(unsigned int cardPos)
 {
-	return GetCard(cardPos)->ViewCardName();
+	return DrawCard(cardPos)->ViewCardName();
 }
 
 unsigned int BasicDeck::CardValue(unsigned int cardPos)
 {
-	return GetCard(cardPos)->ViewCardValue();
+	return DrawCard(cardPos)->ViewCardValue();
 }
