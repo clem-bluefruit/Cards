@@ -29,6 +29,11 @@ void BasicDeck::RemoveCard(Card* card)
 	m_cards.erase(m_cards.begin() + index);
 }
 
+void BasicDeck::ShuffleDeck()
+{
+	random_shuffle(m_cards.begin(), m_cards.end());
+}
+
 Card* BasicDeck::DrawCard(unsigned int pos)
 {
 	return m_cards.at(pos);

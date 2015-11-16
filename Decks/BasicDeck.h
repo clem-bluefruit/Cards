@@ -5,6 +5,7 @@
 #include "Card.h"
 #include "BasicCard.h"
 #include <vector>
+#include <algorithm>
 
 class BasicDeck : public Deck
 {
@@ -17,6 +18,7 @@ public:
 	Card* GetTopCard();
 	void AddCard(Card* card);
 	void RemoveCard(Card* card);
+	void ShuffleDeck();
 	size_t DeckSize();
 	std::string CardName(unsigned int cardPos);
 	unsigned int CardValue(unsigned int cardPos);
