@@ -26,5 +26,8 @@
     <ClCompile Include="BasicSnap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Basic_Blackjack_Game.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

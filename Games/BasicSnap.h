@@ -2,22 +2,22 @@
 #define SNAP_DEFINED
 
 #include "BasicCard.h"
-#include "Deck.h"
 #include "BasicDeck.h"
+#include "Game.h"
 #include <string>
 #include <map>
 
-class SnapGame
+class BasicSnap : public Game
 {
 public:
-	SnapGame();
-	~SnapGame();
-	SnapGame(const SnapGame&) = default;
-	SnapGame& operator = (const SnapGame& rVal);
+	BasicSnap();
+	~BasicSnap();
+	BasicSnap(const BasicSnap&) = default;
+	BasicSnap& operator = (const BasicSnap& rVal);
 	void AddPlayer(const std::string& name, int numberOfCards = 0);
 	void PlayerDrawCard(BasicDeck* playerDeck);
 	BasicDeck* Player(const std::string& name);
-	size_t HowManyPlayers() const;
+	size_t CurrentNumberOfPlayers() const;
 	size_t DiscardDeckSize() const;
 	bool CallSnap(BasicDeck* player = nullptr);
 private:

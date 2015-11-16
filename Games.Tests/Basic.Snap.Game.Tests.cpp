@@ -7,17 +7,17 @@ using namespace ::std;
 
 class BasicSnapGame :
 	public ::testing::Test,
-	public SnapGame
+	public BasicSnap
 {
 public:
-	SnapGame game;
+	BasicSnap game;
 };
 
 TEST_F(BasicSnapGame, Initialise_a_game_with_two_players)
 {
 	game.AddPlayer("One");
 	game.AddPlayer("Two");
-	ASSERT_EQ(2, game.HowManyPlayers());
+	ASSERT_EQ(2, game.CurrentNumberOfPlayers());
 }
 
 TEST_F(BasicSnapGame, Initialise_a_player_with_10_card_deck)

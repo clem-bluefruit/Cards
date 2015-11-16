@@ -3,33 +3,33 @@
 
 using namespace ::std;
 
-SnapGame::SnapGame()
+BasicSnap::BasicSnap()
 {
 	m_discardedCards = new BasicDeck;
 }
 
-SnapGame::~SnapGame()
+BasicSnap::~BasicSnap()
 {
 	for (auto players = m_players.begin(); players != m_players.end(); ++players)
 		delete players->second;
 	delete m_discardedCards;
 }
 
-void SnapGame::AddPlayer(const string& name, int numberOfCards)
+void BasicSnap::AddPlayer(const string& name, int numberOfCards)
 {
 	BasicDeck* deck = new BasicDeck;
 	DeckBuilder(deck, numberOfCards);
 	m_players.insert(pair<string, BasicDeck*>(name, deck));
 }
 
-void SnapGame::PlayerDrawCard(BasicDeck* playerDeck)
+void BasicSnap::PlayerDrawCard(BasicDeck* playerDeck)
 {
 	Card* card = playerDeck->GetTopCard();
 	m_discardedCards->AddCard(card);
 	playerDeck->RemoveCard(card);
 }
 
-void SnapGame::DeckBuilder(BasicDeck* deck, size_t numberOfCards)
+void BasicSnap::DeckBuilder(BasicDeck* deck, size_t numberOfCards)
 {
 	for (unsigned int i = 0; i < numberOfCards; ++i)
 	{
@@ -39,22 +39,22 @@ void SnapGame::DeckBuilder(BasicDeck* deck, size_t numberOfCards)
 	}
 }
 
-BasicDeck* SnapGame::Player(const string& name)
+BasicDeck* BasicSnap::Player(const string& name)
 {
 	return m_players.find(name)->second;
 }
 
-size_t SnapGame::HowManyPlayers() const
+size_t BasicSnap::CurrentNumberOfPlayers() const
 {
 	return m_players.size();
 }
 
-size_t SnapGame::DiscardDeckSize() const
+size_t BasicSnap::DiscardDeckSize() const
 {
 	return m_discardedCards->DeckSize();
 }
 
-bool SnapGame::CallSnap(BasicDeck* player)
+bool BasicSnap::CallSnap(BasicDeck* player)
 {
 	unsigned int deckSize = m_discardedCards->DeckSize();
 	if (deckSize < 2)
