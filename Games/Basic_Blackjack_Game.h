@@ -6,19 +6,20 @@
 #include "Game.h"
 #include <map>
 
-class BlackJackGame : public Game
+class BlackjackGame : public Game
 {
 public:
-	BlackJackGame();
-	~BlackJackGame();
-	BlackJackGame(const BlackJackGame&) = default;
-	BlackJackGame& operator = (const BlackJackGame& rVal);
+	BlackjackGame();
+	~BlackjackGame();
+	BlackjackGame(const BlackjackGame&) = default;
+	BlackjackGame& operator = (const BlackjackGame& rVal);
 	void AddPlayer(const std::string& playerName, int deckSize = 0);
 	void PlayerDrawCard(BasicDeck* deck);
 	BasicDeck* Player(const std::string& playerName);
 	size_t CurrentNumberOfPlayers() const;
 private:
 	std::map<std::string, BasicDeck*> m_players;
+	BasicDeck* m_discardedCards;
 };
 
 #endif

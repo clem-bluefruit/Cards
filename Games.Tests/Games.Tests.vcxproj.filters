@@ -18,5 +18,8 @@
     <ClCompile Include="Basic.Snap.Game.Tests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Basic.Blackjack.Game.Tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

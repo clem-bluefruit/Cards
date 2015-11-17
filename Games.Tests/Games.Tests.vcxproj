@@ -98,6 +98,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Basic.Blackjack.Game.Tests.cpp" />
     <ClCompile Include="Basic.Snap.Game.Tests.cpp">
       <FileType>Document</FileType>
     </ClCompile>
