@@ -23,7 +23,7 @@ void BasicDeck::AddCard(Card* card)
 
 void BasicDeck::RemoveCard(Card* card)
 {
-	unsigned int index = 0;
+	uint index = 0;
 	while (m_cards.at(index) != card)
 		++index;
 	m_cards.erase(m_cards.begin() + index);
@@ -34,7 +34,7 @@ void BasicDeck::ShuffleDeck()
 	random_shuffle(m_cards.begin(), m_cards.end());
 }
 
-Card* BasicDeck::DrawCard(unsigned int pos)
+Card* BasicDeck::DrawCard(uint pos)
 {
 	return m_cards.at(pos);
 }
@@ -49,12 +49,12 @@ size_t BasicDeck::DeckSize()
 	return m_cards.size();
 }
 
-string BasicDeck::CardName(unsigned int cardPos)
+string BasicDeck::CardName(uint cardPos)
 {
 	return DrawCard(cardPos)->ViewCardName();
 }
 
-unsigned int BasicDeck::CardValue(unsigned int cardPos)
+uint BasicDeck::CardValue(uint cardPos)
 {
 	return DrawCard(cardPos)->ViewCardValue();
 }

@@ -1,9 +1,12 @@
 #ifndef BASIC_BLACKJACK_INCLUDED
 #define BASIC_BLACKJACK_INCLUDED
 
+typedef unsigned int uint;
+
 #include "BasicDeck.h"
 #include "BasicCard.h"
 #include "Game.h"
+#include "PlayingCards.h"
 #include <map>
 
 class BlackjackGame : public Game
@@ -17,9 +20,13 @@ public:
 	void PlayerDrawCard(BasicDeck* deck);
 	BasicDeck* Player(const std::string& playerName);
 	size_t CurrentNumberOfPlayers() const;
+	size_t RemainingCards() const;
 private:
 	std::map<std::string, BasicDeck*> m_players;
 	BasicDeck* m_discardedCards;
+	std::map<std::string, uint> m_houseDeck;
+	void DeckBuilder();
+	const uint m_royalCardValues = 10;
 };
 
 #endif

@@ -1,6 +1,8 @@
 #ifndef SNAP_DEFINED
 #define SNAP_DEFINED
 
+typedef unsigned int uint;
+
 #include "BasicCard.h"
 #include "BasicDeck.h"
 #include "Game.h"

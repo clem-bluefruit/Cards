@@ -1,6 +1,8 @@
 #ifndef GAME_INCLUDED
 #define GAME_INCLUDED
 
+typedef unsigned int uint;
+
 #include "BasicCard.h"
 #include "Deck.h"
 #include "BasicDeck.h"

@@ -1,6 +1,8 @@
 #ifndef DECK_DEFINE
 #define DECK_DEFINE
 
+typedef unsigned int uint;
+
 #include "Card.h"
 
 class Deck

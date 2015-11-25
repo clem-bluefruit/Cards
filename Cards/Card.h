@@ -1,6 +1,8 @@
 #ifndef CARD_DEFINED
 #define CARD_DEFINED
 
+typedef unsigned int uint;
+
 #include <string>
 
 class Card

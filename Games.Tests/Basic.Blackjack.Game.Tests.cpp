@@ -17,3 +17,13 @@ TEST_F(BasicBlackjackGame, Initiate_game_with_two_players_gives_three_players_in
 	game.AddPlayer("Two");
 	ASSERT_EQ(3, game.CurrentNumberOfPlayers());
 }
+
+TEST_F(BasicBlackjackGame, Initialised_game_has_a_full_house_deck_of_52_cards)
+{
+	ASSERT_EQ(52, game.RemainingCards());
+}
+
+//TEST_F(BasicBlackjackGame, Initialise_game_with_two_players_players_and_dealer_have_2_cards_each)
+//{
+//
+//}

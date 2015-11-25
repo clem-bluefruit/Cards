@@ -21,6 +21,9 @@
     <ClInclude Include="BasicSnap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PlayingCards.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BasicSnap.cpp">

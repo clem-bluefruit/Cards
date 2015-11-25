@@ -1,12 +1,14 @@
 #include "Basic_Blackjack_Game.h"
 #include "BasicDeck.h"
 
+using namespace ::PlayingCards;
 using namespace ::std;
 
 BlackjackGame::BlackjackGame()
 {
 	m_discardedCards = new BasicDeck;
 	AddPlayer("Dealer");
+	DeckBuilder();
 }
 
 BlackjackGame::~BlackjackGame()
@@ -37,4 +39,23 @@ BasicDeck* BlackjackGame::Player(const string& name)
 size_t BlackjackGame::CurrentNumberOfPlayers() const
 {
 	return m_players.size();
+}
+
+size_t BlackjackGame::RemainingCards() const
+{
+	return m_houseDeck.size();
+}
+
+void BlackjackGame::DeckBuilder()
+{
+	for (uint suite = BlackJackCards::Suite::SPADES; suite <= BlackJackCards::Suite::CLUBS; suite++)
+	{
+		for (uint card = BlackJackCards::Value::ACE; card <= BlackJackCards::Value::KING; card++)
+		{
+			pair<string, uint> cardDetails;
+			cardDetails.first = BlackJackCards::CardName(BlackJackCards::Value(card)) + " of " + BlackJackCards::CardSuite(BlackJackCards::Suite(suite));
+			cardDetails.second = (card >= m_royalCardValues) ? m_royalCardValues : BlackJackCards::Value(card);
+			m_houseDeck.insert(cardDetails);
+		}
+	}
 }
