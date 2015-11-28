@@ -18,9 +18,11 @@ public:
 	BlackjackGame& operator = (const BlackjackGame& rVal);
 	void AddPlayer(const std::string& playerName, int deckSize = 0);
 	void PlayerDrawCard(BasicDeck* deck);
+	void DealCard(const std::string& player);
 	BasicDeck* Player(const std::string& playerName);
 	size_t CurrentNumberOfPlayers() const;
 	size_t RemainingCards() const;
+	size_t PlayerHandSize(BasicDeck* player);
 private:
 	std::map<std::string, BasicDeck*> m_players;
 	BasicDeck* m_discardedCards;

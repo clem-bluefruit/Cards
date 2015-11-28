@@ -31,6 +31,17 @@ void BlackjackGame::PlayerDrawCard(BasicDeck* deck)
 	deck->RemoveCard(card);
 }
 
+void BlackjackGame::DealCard(const string& player)
+{
+	BasicDeck* deck = Player(player);
+	auto topCard = m_houseDeck.begin();
+	const uint cardValue = topCard->second;
+	const string cardName = topCard->first;
+	BasicCard* card = new BasicCard(cardValue, cardName);
+	deck->AddCard(card);
+	m_houseDeck.erase(topCard);
+}
+
 BasicDeck* BlackjackGame::Player(const string& name)
 {
 	return m_players.find(name)->second;
@@ -44,6 +55,11 @@ size_t BlackjackGame::CurrentNumberOfPlayers() const
 size_t BlackjackGame::RemainingCards() const
 {
 	return m_houseDeck.size();
+}
+
+size_t BlackjackGame::PlayerHandSize(BasicDeck* player)
+{
+	return player->DeckSize();
 }
 
 void BlackjackGame::DeckBuilder()
