@@ -23,6 +23,7 @@ public:
 	size_t CurrentNumberOfPlayers() const;
 	size_t RemainingCards() const;
 	size_t PlayerHandSize(BasicDeck* player);
+	uint HandValue(BasicDeck* deck);
 private:
 	std::map<std::string, BasicDeck*> m_players;
 	BasicDeck* m_discardedCards;

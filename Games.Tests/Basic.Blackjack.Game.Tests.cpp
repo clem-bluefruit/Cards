@@ -9,10 +9,10 @@ class BasicBlackjackGame : public BlackjackGame, public ::testing::Test
 {
 public:
 	BlackjackGame game;
-	void SetupTwoPlayerGame()
+	void SetupTwoPlayerGame(string nameOne = "One", string nameTwo = "Two")
 	{
-		game.AddPlayer("One");
-		game.AddPlayer("Two");
+		game.AddPlayer(nameOne);
+		game.AddPlayer(nameTwo);
 	}
 };
 
@@ -46,4 +46,31 @@ TEST_F(BasicBlackjackGame, Initialise_game_with_two_players_Players_and_dealer_h
 	}
 	ASSERT_EQ(expectedHandSize, game.PlayerHandSize(game.Player("One")));
 	ASSERT_EQ(46, game.RemainingCards());
+}
+
+TEST_F(BasicBlackjackGame, Initialised_game_with_unshuffled_deck_player_One_and_Twos_card_totals_are_20_and_12)
+{
+	SetupTwoPlayerGame();
+	const uint expectedHandSize = 2;
+	for (size_t i = 0; i < expectedHandSize; i++)
+	{
+		game.DealCard("One");
+		game.DealCard("Two");
+		game.DealCard("Dealer");
+	}
+	ASSERT_EQ(20, game.HandValue(game.Player("One")));
+	ASSERT_EQ(12, game.HandValue(game.Player("Two")));
+}
+
+TEST_F(BasicBlackjackGame, Initialised_game_with_unshuffled_deck_Dealer_has_first_card_face_down_value_is_2)
+{
+	SetupTwoPlayerGame();
+	const uint expectedHandSize = 2;
+	for (size_t i = 0; i < expectedHandSize; i++)
+	{
+		game.DealCard("One");
+		game.DealCard("Two");
+		game.DealCard("Dealer");
+	}
+	ASSERT_EQ(2, game.HandValue(game.Player("Dealer")));
 }

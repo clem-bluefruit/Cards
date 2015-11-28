@@ -62,6 +62,20 @@ size_t BlackjackGame::PlayerHandSize(BasicDeck* player)
 	return player->DeckSize();
 }
 
+uint BlackjackGame::HandValue(BasicDeck* deck)
+{
+	size_t deckSize = deck->DeckSize();
+	uint handTotal  = 0;
+	BasicDeck* dealerDeck = Player("Dealer");
+	for (size_t i = 0; i < deckSize; i++)
+	{
+		if (deck == dealerDeck && i == 0)
+			continue;
+		handTotal += deck->CardValue(i);
+	}
+	return handTotal;
+}
+
 void BlackjackGame::DeckBuilder()
 {
 	for (uint suite = BlackJackCards::Suite::SPADES; suite <= BlackJackCards::Suite::CLUBS; suite++)
