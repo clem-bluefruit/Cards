@@ -34,7 +34,7 @@ TEST_F(BasicBlackjackGame, Initialised_game_has_a_full_house_deck_of_52_cards)
 	ASSERT_EQ(52, game.RemainingCards());
 }
 
-TEST_F(BasicBlackjackGame, Initialise_game_with_two_players_Players_and_dealer_have_2_cards_each)
+TEST_F(BasicBlackjackGame, Initialise_game_with_two_players_Players_and_dealer_have_2_cards_each_house_deck_has_46_cards_left)
 {
 	SetupTwoPlayerGame();
 	const uint expectedHandSize = 2;
@@ -45,4 +45,5 @@ TEST_F(BasicBlackjackGame, Initialise_game_with_two_players_Players_and_dealer_h
 		game.DealCard("Dealer");
 	}
 	ASSERT_EQ(expectedHandSize, game.PlayerHandSize(game.Player("One")));
+	ASSERT_EQ(46, game.RemainingCards());
 }
