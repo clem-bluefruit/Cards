@@ -58,11 +58,11 @@ TEST_F(BasicBlackjackGame, Initialised_game_with_unshuffled_deck_player_One_and_
 		game.DealCard("Two");
 		game.DealCard("Dealer");
 	}
-	ASSERT_EQ(20, game.HandValue(game.Player("One")));
-	ASSERT_EQ(12, game.HandValue(game.Player("Two")));
+	ASSERT_EQ(20, game.HandValue(game.Player("One"))) << "Error: Player One hand value should be 20";
+	ASSERT_EQ(12, game.HandValue(game.Player("Two"))) << "Error: Player Two hand value should be 12";
 }
 
-TEST_F(BasicBlackjackGame, Initialised_game_with_unshuffled_deck_Dealer_has_first_card_face_down_value_is_2)
+TEST_F(BasicBlackjackGame, Initialised_game_with_unshuffled_deck_Dealer_has_first_card_face_down_hand_value_is_2)
 {
 	SetupTwoPlayerGame();
 	const uint expectedHandSize = 2;
@@ -72,5 +72,6 @@ TEST_F(BasicBlackjackGame, Initialised_game_with_unshuffled_deck_Dealer_has_firs
 		game.DealCard("Two");
 		game.DealCard("Dealer");
 	}
+	
 	ASSERT_EQ(2, game.HandValue(game.Player("Dealer")));
 }

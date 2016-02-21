@@ -31,7 +31,13 @@ void BasicDeck::RemoveCard(Card* card)
 
 void BasicDeck::ShuffleDeck()
 {
-	random_shuffle(m_cards.begin(), m_cards.end());
+	vector<Card*> unshuffledCards = m_cards;
+	
+	while (unshuffledCards == m_cards)
+	{
+		for (size_t i = 0; i <= DeckSize(); i++)
+			random_shuffle(m_cards.begin(), m_cards.end());
+	}
 }
 
 Card* BasicDeck::DrawCard(uint pos)
